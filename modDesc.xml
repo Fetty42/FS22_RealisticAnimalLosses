@@ -1,0 +1,74 @@
+<modDesc descVersion="72">
+	<author>Fetty42</author>
+	<version>1.0.0.0</version>
+	<title>
+        <en>Dying Animals</en>
+		<de>Sterbende Tiere</de>
+    </title>
+    <description>
+        <de><![CDATA[Deine Tiere können jetzt aufgrund der folgenden Gründe sterben:
+    - wenn sie zu alt werden (geringe Sterberate)
+      (Für alle Tiere 60 Monate, da der FS22 aktuell kein höheres Tieralter anzeigt)
+    - wenn sie übere mehrere Stunden eine Gesundheit von 0 haben (geringe Sterberate)
+    - wenn sie übere mehrere Stunden kein Futter mehr haben (hohe Sterberate)
+
+Die Überprüfung findet jeweils morgens um 5 Uhr statt.
+Falls über den Tag ein Sterberisiko erkannt wird, bekommst du alle 8 Std. eine Info, dass du dich um deine Tiere kümmern solltest.
+
+Für Fehlermeldungen oder Anregungen besucht bitte: https://github.com/Fetty42/FS22_DyingAnimals]]></de>
+		<en><![CDATA[Your animals may die now due to the following reasons:
+    - when they get too old (low mortality rate)
+      (For all animals 60 months, as the FS22 does not currently display a higher animal age)
+    - when they have a health of 0 for several hours (low mortality rate)
+    - if they have no food for several hours (high mortality rate).
+
+The check takes place at 5 o'clock in the morning.
+If a mortality risk is detected during the day, you will receive an information every 8 hours that you should take care of your animals.
+
+For error messages or suggestions please visit: https://github.com/Fetty42/FS22_DyingAnimals]]></en>
+    </description>
+	
+	<iconFilename>icon_mod.dds</iconFilename>
+	<multiplayer supported="true" />
+	<extraSourceFiles>
+		<sourceFile filename="FS22_DyingAnimals.lua" />
+	</extraSourceFiles>    
+	<l10n>
+		<text name="txt_ageDyingMsg">
+			<de>%s - Leider sind %s %s wegen zu hohem Alter gestorben!</de>
+			<en>%s - Unfortunately %s %s died because of too old age!</en>
+        </text>		
+		<text name="txt_healthDyingMsg">
+			<de>%s - Leider sind %s %s wegen geringer Gesundheit gestorben!</de>
+			<en>%s - Unfortunately %s %s died due to poor health!</en>
+        </text>		
+		<text name="txt_foodDyingMsg">
+			<de>%s - Leider sind %s %s wegen fehlendem Futter gestorben!</de>
+			<en>%s - Unfortunately %s %s died due to lack of food!</en>
+        </text>		
+		<text name="txt_riskInfoMsg">
+			<de>Achtung, kümmern Sie sich um Ihre Tiere (Futter, Gesundheit, Alter)!</de>
+			<en>Attention, take care of your animals (food, health, age)!</en>
+        </text>		
+		<text name="txt_horse">
+			<de>Pferd,Pferde</de>
+			<en>horse,horses</en>
+        </text>		
+        <text name="txt_pig">
+			<de>Schwein,Schweine</de>
+			<en>pig,pigs</en>
+        </text>		
+        <text name="txt_cow">
+			<de>Kuh,Kühe</de>
+			<en>cow,cows</en>
+        </text>		
+        <text name="txt_sheep">
+			<de>Schaf,Schafe</de>
+			<en>sheep,sheep</en>
+        </text>		
+        <text name="txt_chicken">
+			<de>Huhn,Hühner</de>
+			<en>chicken,chickens</en>
+        </text>		
+	</l10n>
+</modDesc>
