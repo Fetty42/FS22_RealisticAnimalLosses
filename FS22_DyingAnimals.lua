@@ -82,7 +82,7 @@ function DyingAnimals:onHourChanged(hour)
 			local sumNumDyingAnimalsForHealh = 0
 			local sumNumDyingAnimalsForFood = 0
 
-			for _, cluster in ipairs(placeable:getClusters()) do
+			for idx, cluster in ipairs(placeable:getClusters()) do
 				dbPrintf("    - Cluster:  numAnimals=%s | age=%s | health=%s | subTypeName=%s | subTypeTitle=%s"
 				, cluster.numAnimals, cluster.age, cluster.health, g_currentMission.animalSystem.subTypes[cluster.subTypeIndex].name, g_currentMission.animalSystem.subTypes[cluster.subTypeIndex].visuals[1].store.name)
 
@@ -147,6 +147,11 @@ function DyingAnimals:onHourChanged(hour)
 					
 				else
 					DyingAnimals.clusterNumHoursWithoutFood[cluster] = 0					
+				end
+				
+				-- clean up
+				if cluster.numAnimals <= 0 then
+					table.remove(placeable:getClusters(), idx)
 				end
 			end
 
