@@ -9,7 +9,7 @@
         <de><![CDATA[Deine Tiere können jetzt aufgrund der folgenden Gründe sterben:
     - wenn sie zu alt werden (geringe Sterberate)
       (Für alle Tiere 60 Monate, da der FS22 aktuell kein höheres Tieralter anzeigt)
-    - wenn sie übere mehrere Stunden eine Gesundheit von 0 haben (geringe Sterberate)
+    - wenn sie übere mehrere Stunden eine Gesundheit von unter 25 haben (geringe Sterberate)
     - wenn sie übere mehrere Stunden kein Futter mehr haben (hohe Sterberate)
 
 Die Überprüfung findet jeweils morgens um 5 Uhr statt.
@@ -19,7 +19,7 @@ Für Fehlermeldungen oder Anregungen besucht bitte: https://github.com/Fetty42/F
 		<en><![CDATA[Your animals may die now due to the following reasons:
     - when they get too old (low mortality rate)
       (For all animals 60 months, as the FS22 does not currently display a higher animal age)
-    - when they have a health of 0 for several hours (low mortality rate)
+    - when they have a health under 25 for several hours (low mortality rate)
     - if they have no food for several hours (high mortality rate).
 
 The check takes place at 5 o'clock in the morning.
@@ -35,16 +35,16 @@ For error messages or suggestions please visit: https://github.com/Fetty42/FS22_
 	</extraSourceFiles>    
 	<l10n>
 		<text name="txt_ageDyingMsg">
-			<de>%s - Leider sind %s %s wegen zu hohem Alter gestorben!</de>
-			<en>%s - Unfortunately %s %s died because of too old age!</en>
+			<de>%s - Leider hast Du %s %s wegen zu hohem Alter verloren!</de>
+			<en>%s - Unfortunately you lost %s %s because of too old age!</en>
         </text>		
 		<text name="txt_healthDyingMsg">
-			<de>%s - Leider sind %s %s wegen geringer Gesundheit gestorben!</de>
-			<en>%s - Unfortunately %s %s died due to poor health!</en>
+			<de>%s - Leider hast Du %s %s wegen geringer Gesundheit verloren!</de>
+			<en>%s - Unfortunately you lost %s %s because of bad health!</en>
         </text>		
 		<text name="txt_foodDyingMsg">
-			<de>%s - Leider sind %s %s wegen fehlendem Futter gestorben!</de>
-			<en>%s - Unfortunately %s %s died due to lack of food!</en>
+			<de>%s - Leider hast Du %s %s wegen fehlendem Futter verloren!</de>
+			<en>%s - Unfortunately you lost %s %s because of lack of food!</en>
         </text>		
 		<text name="txt_riskInfoMsg">
 			<de>Achtung, kümmern Sie sich um Ihre Tiere (Futter, Gesundheit, Alter)!</de>

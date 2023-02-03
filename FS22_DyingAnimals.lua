@@ -105,7 +105,7 @@ function DyingAnimals:onHourChanged(hour)
 				end
 
 				-- check health
-				if cluster.health < 0.1 then
+				if cluster.health < 25 then
 					isWarning = true
 					if DyingAnimals.clusterNumHoursWithNoHealth[cluster] == nil then
 						DyingAnimals.clusterNumHoursWithNoHealth[cluster] = 1					
