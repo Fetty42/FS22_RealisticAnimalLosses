@@ -2,8 +2,8 @@
 	<author>Fetty42</author>
 	<version>1.0.0.0</version>
 	<title>
-        <en>Losing Animals</en>
-		<de>Tiere verlieren</de>
+        <en>Realistic Animal Losses</en>
+		<de>Realistische Tierverluste</de>
     </title>
     <description>
         <de><![CDATA[Deine Tierpopulationen können sich jetzt aufgrund der folgenden Gründe verringern:
@@ -15,7 +15,7 @@
 Die Überprüfung findet jeweils morgens um 5 Uhr statt.
 Falls über den Tag eins der oben erwähnten Risiken erkannt wird, bekommst du alle 8 Std. eine Info, dass du dich um deine Tiere kümmern solltest.
 
-Für Fehlermeldungen oder Anregungen besucht bitte: https://github.com/Fetty42/FS22_LosingAnimals]]></de>
+Für Fehlermeldungen oder Anregungen besucht bitte: https://github.com/Fetty42/FS22_RealisticAnimalLosses]]></de>
 		<en><![CDATA[Your animal populations may now decrease due to the following reasons:
     - when they get too old (low probability)
       (For all animals 60 months, as the FS22 does not currently display a higher animal age)
@@ -25,13 +25,13 @@ Für Fehlermeldungen oder Anregungen besucht bitte: https://github.com/Fetty42/F
 The check takes place at 5 o'clock in the morning.
 If any of the above risks are detected during the day, you will receive an information every 8 hours that you should take care of your animals.
 
-For error messages or suggestions please visit: https://github.com/Fetty42/FS22_LosingAnimals]]></en>
+For error messages or suggestions please visit: https://github.com/Fetty42/FS22_RealisticAnimalLosses]]></en>
     </description>
 	
 	<iconFilename>icon_mod.dds</iconFilename>
 	<multiplayer supported="true" />
 	<extraSourceFiles>
-		<sourceFile filename="FS22_LosingAnimals.lua" />
+		<sourceFile filename="FS22_RealisticAnimalLosses.lua" />
 	</extraSourceFiles>    
 	<l10n>
 		<text name="txt_ageDyingMsg">
