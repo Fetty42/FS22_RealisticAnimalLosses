@@ -32,14 +32,14 @@ RealisticAnimalLosses.dir = g_currentModDirectory
 RealisticAnimalLosses.modName = g_currentModName
 
 -- configuration
-RealisticAnimalLosses.noFoodDyingRate = 25
-RealisticAnimalLosses.noFoodDyingWaitingHours = 6
+RealisticAnimalLosses.noFoodLossesRate = 25
+RealisticAnimalLosses.noFoodLossesWaitingHours = 6
 
-RealisticAnimalLosses.noHealthDyingRate = 3
-RealisticAnimalLosses.noHealthDyingWaitingHours = 2
+RealisticAnimalLosses.noHealthLossesRate = 3
+RealisticAnimalLosses.noHealthLossesWaitingHours = 2
 
-RealisticAnimalLosses.riskAgeDyingRate = 2
-RealisticAnimalLosses.riskAgeDyingWaitingHours = 1
+RealisticAnimalLosses.riskAgeLossesRate = 2
+RealisticAnimalLosses.riskAgeLossesWaitingHours = 1
 -- RealisticAnimalLosses.riskAnimalAgeInMonths = {HORSE=200, PIG=120, COW=160, SHEEP=80, CHICKEN=80}
 RealisticAnimalLosses.riskAnimalAgeInMonths = {HORSE=60, PIG=60, COW=60, SHEEP=60, CHICKEN=60}	-- currently the maximum age of animals in FS22 is 60 months/5 years
 
@@ -68,7 +68,7 @@ function RealisticAnimalLosses:onHourChanged(hour)
 	-- check each cluster for healthy and food
 	local farmId = g_currentMission.player.farmId;
 	local isWarning = false
-	local isDyingNotification = false
+	local isLossesNotification = false
 	for _,husbandry in pairs(g_currentMission.husbandrySystem.clusterHusbandries) do
 		local placeable = husbandry:getPlaceable()
 		if placeable.ownerFarmId == farmId then
@@ -94,12 +94,12 @@ function RealisticAnimalLosses:onHourChanged(hour)
 					-- Let some animals die
 					if RealisticAnimalLosses.hourForAction == hour then
 						-- local riskFactor = 100 / RealisticAnimalLosses.riskAnimalAgeInMonths[husbandry.animalTypeName] * (cluster.age - riskAnimalAge + 1)
-						-- local numDeadAnimals = RealisticAnimalLosses:probabilityCalculationNumOfHits(cluster.numAnimals, RealisticAnimalLosses.riskAgeDyingRate * riskFactor / g_currentMission.environment.daysPerPeriod)
-						local numDeadAnimals = RealisticAnimalLosses:probabilityCalculationNumOfHits(cluster.numAnimals, RealisticAnimalLosses.riskAgeDyingRate / g_currentMission.environment.daysPerPeriod)
-						if numDeadAnimals > 0 then
-							cluster.numAnimals = cluster.numAnimals - numDeadAnimals
-							sumNumRealisticAnimalLossesForAge = sumNumRealisticAnimalLossesForAge + numDeadAnimals
-							dbPrintf("    --> Cluster: %s aminals dying for age", numDeadAnimals)
+						-- local numLostAnimals = RealisticAnimalLosses:probabilityCalculationNumOfHits(cluster.numAnimals, RealisticAnimalLosses.riskAgeLossesRate * riskFactor / g_currentMission.environment.daysPerPeriod)
+						local numLostAnimals = RealisticAnimalLosses:probabilityCalculationNumOfHits(cluster.numAnimals, RealisticAnimalLosses.riskAgeLossesRate / g_currentMission.environment.daysPerPeriod)
+						if numLostAnimals > 0 then
+							cluster.numAnimals = cluster.numAnimals - numLostAnimals
+							sumNumRealisticAnimalLossesForAge = sumNumRealisticAnimalLossesForAge + numLostAnimals
+							dbPrintf("    --> Cluster: %s aminals Losses for age", numLostAnimals)
 						end
 					end
 				end
@@ -114,12 +114,12 @@ function RealisticAnimalLosses:onHourChanged(hour)
 					end
 
 					-- Let some animals die
-					if RealisticAnimalLosses.clusterNumHoursWithNoHealth[cluster] >= RealisticAnimalLosses.noHealthDyingWaitingHours and RealisticAnimalLosses.hourForAction == hour then
-						local numDeadAnimals = RealisticAnimalLosses:probabilityCalculationNumOfHits(cluster.numAnimals, RealisticAnimalLosses.noHealthDyingRate / g_currentMission.environment.daysPerPeriod)
-						if numDeadAnimals > 0 then
-							cluster.numAnimals = cluster.numAnimals - numDeadAnimals
-							sumNumRealisticAnimalLossesForHealh = sumNumRealisticAnimalLossesForHealh + numDeadAnimals
-							dbPrintf("    --> Cluster: %s aminals dying for health", numDeadAnimals)
+					if RealisticAnimalLosses.clusterNumHoursWithNoHealth[cluster] >= RealisticAnimalLosses.noHealthLossesWaitingHours and RealisticAnimalLosses.hourForAction == hour then
+						local numLostAnimals = RealisticAnimalLosses:probabilityCalculationNumOfHits(cluster.numAnimals, RealisticAnimalLosses.noHealthLossesRate / g_currentMission.environment.daysPerPeriod)
+						if numLostAnimals > 0 then
+							cluster.numAnimals = cluster.numAnimals - numLostAnimals
+							sumNumRealisticAnimalLossesForHealh = sumNumRealisticAnimalLossesForHealh + numLostAnimals
+							dbPrintf("    --> Cluster: %s aminals Losses for health", numLostAnimals)
 						end
 					end
 				else
@@ -136,12 +136,12 @@ function RealisticAnimalLosses:onHourChanged(hour)
 					end
 
 					-- Let some animals die
-					if RealisticAnimalLosses.clusterNumHoursWithoutFood[cluster] >= RealisticAnimalLosses.noFoodDyingWaitingHours and RealisticAnimalLosses.hourForAction == hour then
-						local numDeadAnimals = RealisticAnimalLosses:probabilityCalculationNumOfHits(cluster.numAnimals, RealisticAnimalLosses.noFoodDyingRate / g_currentMission.environment.daysPerPeriod)
-						if numDeadAnimals > 0 then
-							cluster.numAnimals = cluster.numAnimals - numDeadAnimals
-							sumNumRealisticAnimalLossesForFood = sumNumRealisticAnimalLossesForFood + numDeadAnimals
-							dbPrintf("    --> Cluster: %s aminals dying for food", numDeadAnimals)
+					if RealisticAnimalLosses.clusterNumHoursWithoutFood[cluster] >= RealisticAnimalLosses.noFoodLossesWaitingHours and RealisticAnimalLosses.hourForAction == hour then
+						local numLostAnimals = RealisticAnimalLosses:probabilityCalculationNumOfHits(cluster.numAnimals, RealisticAnimalLosses.noFoodLossesRate / g_currentMission.environment.daysPerPeriod)
+						if numLostAnimals > 0 then
+							cluster.numAnimals = cluster.numAnimals - numLostAnimals
+							sumNumRealisticAnimalLossesForFood = sumNumRealisticAnimalLossesForFood + numLostAnimals
+							dbPrintf("    --> Cluster: %s aminals Losses for food", numLostAnimals)
 						end
 					end
 					
@@ -156,33 +156,33 @@ function RealisticAnimalLosses:onHourChanged(hour)
 			end
 
 			if sumNumRealisticAnimalLossesForAge > 0 then
-				local msgTxt = string.format(g_i18n:getText("txt_ageDyingMsg"), placeableName, sumNumRealisticAnimalLossesForAge, RealisticAnimalLosses:getAnimalTitle(husbandry.animalTypeName, sumNumRealisticAnimalLossesForAge > 1))
+				local msgTxt = string.format(g_i18n:getText("txt_ageLossesMsg"), placeableName, sumNumRealisticAnimalLossesForAge, RealisticAnimalLosses:getAnimalTitle(husbandry.animalTypeName, sumNumRealisticAnimalLossesForAge > 1))
 				dbPrintf("  --> " .. msgTxt)
 				g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgTxt)
-				isDyingNotification = true
+				isLossesNotification = true
 				RealisticAnimalLosses.numHoursAfterLastWarning = 0
 			end
 
 			if sumNumRealisticAnimalLossesForHealh > 0 then
-				local msgTxt = string.format(g_i18n:getText("txt_healthDyingMsg"), placeableName, sumNumRealisticAnimalLossesForHealh, RealisticAnimalLosses:getAnimalTitle(husbandry.animalTypeName, sumNumRealisticAnimalLossesForHealh > 1))
+				local msgTxt = string.format(g_i18n:getText("txt_healthLossesMsg"), placeableName, sumNumRealisticAnimalLossesForHealh, RealisticAnimalLosses:getAnimalTitle(husbandry.animalTypeName, sumNumRealisticAnimalLossesForHealh > 1))
 				dbPrintf("  --> " .. msgTxt)
 				g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgTxt)
-				isDyingNotification = true
+				isLossesNotification = true
 				RealisticAnimalLosses.numHoursAfterLastWarning = 0
 			end
 				
 			if sumNumRealisticAnimalLossesForFood > 0 then
-				local msgTxt = string.format(g_i18n:getText("txt_foodDyingMsg"), placeableName, sumNumRealisticAnimalLossesForFood, RealisticAnimalLosses:getAnimalTitle(husbandry.animalTypeName, sumNumRealisticAnimalLossesForFood > 1))
+				local msgTxt = string.format(g_i18n:getText("txt_foodLossesMsg"), placeableName, sumNumRealisticAnimalLossesForFood, RealisticAnimalLosses:getAnimalTitle(husbandry.animalTypeName, sumNumRealisticAnimalLossesForFood > 1))
 				dbPrintf("  --> " .. msgTxt)
 				g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgTxt)
-				isDyingNotification = true
+				isLossesNotification = true
 				RealisticAnimalLosses.numHoursAfterLastWarning = 0
 			end
 		end
 	end
 
 	-- display warning when no action has been taken but potential animals would have died
-	if isWarning and not isDyingNotification and RealisticAnimalLosses.numHoursAfterLastWarning >= RealisticAnimalLosses.warningWaitingHours then
+	if isWarning and not isLossesNotification and RealisticAnimalLosses.numHoursAfterLastWarning >= RealisticAnimalLosses.warningWaitingHours then
 		RealisticAnimalLosses.numHoursAfterLastWarning = 0
 		local msgTxt = g_i18n:getText("txt_riskInfoMsg")
 		dbPrintf("  --> " .. msgTxt)
