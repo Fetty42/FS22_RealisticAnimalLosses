@@ -1,6 +1,6 @@
 -- Author: Fetty42
 -- Date: 28.11.2022
--- Version: 1.0.0.0
+-- Version: 1.0.1.0
 
 local dbPrintfOn = false
 local dbInfoPrintfOn = true
@@ -19,7 +19,7 @@ end
 
 local function dbPrintHeader(ftName)
 	if dbPrintfOn then
-    	print(string.format("Call %s: g_currentMission:getIsServer()=%s | g_currentMission:getIsClient()=%s", ftName, g_currentMission:getIsServer(), g_currentMission:getIsClient()))
+    	print(string.format("Call %s: isMultiplayer=%s | isServer()=%s | isClient()=%s | g_server=%s", ftName, g_currentMission.missionDynamicInfo.isMultiplayer, g_currentMission:getIsServer(), g_currentMission:getIsClient(), g_server))
 	end
 end
 
@@ -63,7 +63,7 @@ end
 
 function RealisticAnimalLosses:onHourChanged(hour)
 	dbPrintHeader("RealisticAnimalLosses:onHourChanged")
-	dbPrintf("  parameter=%s", hour)
+	dbPrintf("  hour=%s | farmId=%s", hour, g_currentMission.player.farmId)
 	
 	-- check each cluster for healthy and food
 	local farmId = g_currentMission.player.farmId;
@@ -71,7 +71,7 @@ function RealisticAnimalLosses:onHourChanged(hour)
 	local isLossesNotification = false
 	for _,husbandry in pairs(g_currentMission.husbandrySystem.clusterHusbandries) do
 		local placeable = husbandry:getPlaceable()
-		if placeable.ownerFarmId == farmId then
+		if farmId~= nil and farmId ~= 0 and placeable.ownerFarmId == farmId then
 			local placeableName = placeable:getName()
 			local totalFood = placeable:getTotalFood()
 
@@ -91,7 +91,7 @@ function RealisticAnimalLosses:onHourChanged(hour)
 				if cluster.age >= riskAnimalAge then
 					isWarning = true
 
-					-- Let some animals die
+					-- Let some animals go away
 					if RealisticAnimalLosses.hourForAction == hour then
 						-- local riskFactor = 100 / RealisticAnimalLosses.riskAnimalAgeInMonths[husbandry.animalTypeName] * (cluster.age - riskAnimalAge + 1)
 						-- local numLostAnimals = RealisticAnimalLosses:probabilityCalculationNumOfHits(cluster.numAnimals, RealisticAnimalLosses.riskAgeLossesRate * riskFactor / g_currentMission.environment.daysPerPeriod)
@@ -113,7 +113,7 @@ function RealisticAnimalLosses:onHourChanged(hour)
 						RealisticAnimalLosses.clusterNumHoursWithNoHealth[cluster] = RealisticAnimalLosses.clusterNumHoursWithNoHealth[cluster] + 1
 					end
 
-					-- Let some animals die
+					-- Let some animals go away
 					if RealisticAnimalLosses.clusterNumHoursWithNoHealth[cluster] >= RealisticAnimalLosses.noHealthLossesWaitingHours and RealisticAnimalLosses.hourForAction == hour then
 						local numLostAnimals = RealisticAnimalLosses:probabilityCalculationNumOfHits(cluster.numAnimals, RealisticAnimalLosses.noHealthLossesRate / g_currentMission.environment.daysPerPeriod)
 						if numLostAnimals > 0 then
@@ -135,7 +135,7 @@ function RealisticAnimalLosses:onHourChanged(hour)
 						RealisticAnimalLosses.clusterNumHoursWithoutFood[cluster] = RealisticAnimalLosses.clusterNumHoursWithoutFood[cluster] + 1
 					end
 
-					-- Let some animals die
+					-- Let some animals go away
 					if RealisticAnimalLosses.clusterNumHoursWithoutFood[cluster] >= RealisticAnimalLosses.noFoodLossesWaitingHours and RealisticAnimalLosses.hourForAction == hour then
 						local numLostAnimals = RealisticAnimalLosses:probabilityCalculationNumOfHits(cluster.numAnimals, RealisticAnimalLosses.noFoodLossesRate / g_currentMission.environment.daysPerPeriod)
 						if numLostAnimals > 0 then
@@ -181,7 +181,7 @@ function RealisticAnimalLosses:onHourChanged(hour)
 		end
 	end
 
-	-- display warning when no action has been taken but potential animals would have died
+	-- display warning when no action has been taken but potential animals would have go away
 	if isWarning and not isLossesNotification and RealisticAnimalLosses.numHoursAfterLastWarning >= RealisticAnimalLosses.warningWaitingHours then
 		RealisticAnimalLosses.numHoursAfterLastWarning = 0
 		local msgTxt = g_i18n:getText("txt_riskInfoMsg")

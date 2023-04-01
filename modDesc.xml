@@ -1,6 +1,6 @@
-<modDesc descVersion="72">
+<modDesc descVersion="73">
 	<author>Fetty42</author>
-	<version>1.0.0.0</version>
+	<version>1.0.1.0</version>
 	<title>
         <en>Realistic Animal Losses</en>
 		<de>Realistische Tierverluste</de>
@@ -15,7 +15,10 @@
 Die Überprüfung findet jeweils morgens um 5 Uhr statt.
 Falls über den Tag eins der oben erwähnten Risiken erkannt wird, bekommst du alle 8 Std. eine Info, dass du dich um deine Tiere kümmern solltest.
 
-Für Fehlermeldungen oder Anregungen besucht bitte: https://github.com/Fetty42/FS22_RealisticAnimalLosses]]></de>
+Für Fehlermeldungen oder Anregungen besucht bitte: https://github.com/Fetty42/FS22_RealisticAnimalLosses
+
+Update 1.0.1
+- Korrektur von potenziellen Problemen bei Multiplayer Spielen]]></de>
 		<en><![CDATA[Your animal populations may now decrease due to the following reasons:
 - when they get too old (low probability)
   (For all animals 60 months, as the FS22 does not currently display a higher animal age)
@@ -25,7 +28,10 @@ Für Fehlermeldungen oder Anregungen besucht bitte: https://github.com/Fetty42/F
 The check takes place at 5 o'clock in the morning.
 If any of the above risks are detected during the day, you will receive an information every 8 hours that you should take care of your animals.
 
-For error messages or suggestions please visit: https://github.com/Fetty42/FS22_RealisticAnimalLosses]]></en>
+For error messages or suggestions please visit: https://github.com/Fetty42/FS22_RealisticAnimalLosses
+
+Update 1.0.1
+- Correction of potential problems with multiplayer games]]></en>
     </description>
 	
 	<iconFilename>icon_mod.dds</iconFilename>
