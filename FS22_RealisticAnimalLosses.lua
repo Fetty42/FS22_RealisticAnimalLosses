@@ -1,6 +1,6 @@
 -- Author: Fetty42
--- Date: 28.11.2022
--- Version: 1.0.1.0
+-- Date: 08.04.2023
+-- Version: 1.0.2.0
 
 local dbPrintfOn = false
 local dbInfoPrintfOn = true
@@ -32,13 +32,13 @@ RealisticAnimalLosses.dir = g_currentModDirectory
 RealisticAnimalLosses.modName = g_currentModName
 
 -- configuration
-RealisticAnimalLosses.noFoodLossesRate = 25
+RealisticAnimalLosses.noFoodLossesRate = 40
 RealisticAnimalLosses.noFoodLossesWaitingHours = 6
 
-RealisticAnimalLosses.noHealthLossesRate = 3
+RealisticAnimalLosses.noHealthLossesRate = 5
 RealisticAnimalLosses.noHealthLossesWaitingHours = 2
 
-RealisticAnimalLosses.riskAgeLossesRate = 2
+RealisticAnimalLosses.riskAgeLossesRate = 3
 RealisticAnimalLosses.riskAgeLossesWaitingHours = 1
 -- RealisticAnimalLosses.riskAnimalAgeInMonths = {HORSE=200, PIG=120, COW=160, SHEEP=80, CHICKEN=80}
 RealisticAnimalLosses.riskAnimalAgeInMonths = {HORSE=60, PIG=60, COW=60, SHEEP=60, CHICKEN=60}	-- currently the maximum age of animals in FS22 is 60 months/5 years

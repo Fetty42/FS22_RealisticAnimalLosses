@@ -1,9 +1,10 @@
 <modDesc descVersion="73">
 	<author>Fetty42</author>
-	<version>1.0.1.0</version>
+	<version>1.0.2.0</version>
 	<title>
         <en>Realistic Animal Losses</en>
 		<de>Realistische Tierverluste</de>
+		<fr>Pertes D'Animaux Réalistes</fr>
     </title>
     <description>
         <de><![CDATA[Deine Tierpopulationen können sich jetzt aufgrund der folgenden Gründe verringern:
@@ -16,6 +17,10 @@ Die Überprüfung findet jeweils morgens um 5 Uhr statt.
 Falls über den Tag eins der oben erwähnten Risiken erkannt wird, bekommst du alle 8 Std. eine Info, dass du dich um deine Tiere kümmern solltest.
 
 Für Fehlermeldungen oder Anregungen besucht bitte: https://github.com/Fetty42/FS22_RealisticAnimalLosses
+
+Update 1.0.2
+- Französische Übersetzung (Danke an BOB51160)
+- Wahrscheinlichkeiten etwas erhöht
 
 Update 1.0.1
 - Korrektur von potenziellen Problemen bei Multiplayer Spielen]]></de>
@@ -30,8 +35,29 @@ If any of the above risks are detected during the day, you will receive an infor
 
 For error messages or suggestions please visit: https://github.com/Fetty42/FS22_RealisticAnimalLosses
 
+Update 1.0.2
+- French translation (thanks to BOB51160)
+- Probabilities slightly increased
+
 Update 1.0.1
 - Correction of potential problems with multiplayer games]]></en>
+		<fr><![CDATA[Vos populations animales peuvent désormais diminuer pour les raisons suivantes :
+- quand ils deviennent trop vieux (faible probabilité)
+  (Pour tous les animaux de 60 mois, car le FS22 n'affiche pas actuellement d'âge animal supérieur)
+- lorsqu'ils ont un état de santé inférieur à 25 ans depuis plusieurs heures (faible probabilité)
+- s'ils n'ont rien mangé pendant plusieurs heures (probabilité élevée).
+
+Le contrôle a lieu à 5 heures du matin.
+Si l'un des risques ci-dessus est détecté pendant la journée, vous recevrez une information toutes les 8 heures indiquant que vous devez prendre soin de vos animaux.
+
+Pour les messages d'erreur ou les suggestions, veuillez visiter : https://github.com/Fetty42/FS22_RealisticAnimalLosses
+
+Mise à jour 1.0.2
+- Traduction française (merci à BOB51160)
+- Probabilités légèrement augmentées
+
+Mise à jour 1.0.1
+- Correction de problèmes potentiels avec les jeux multijoueurs]]></fr>
     </description>
 	
 	<iconFilename>icon_mod.dds</iconFilename>
@@ -43,38 +69,47 @@ Update 1.0.1
 		<text name="txt_ageLossesMsg">
 			<de>%s - Leider hast Du %s %s wegen zu hohem Alter verloren!</de>
 			<en>%s - Unfortunately you lost %s %s because of too old age!</en>
+			<fr>%s - Malheureusement vous avez perdu %s %s à cause d'un âge trop avancé!</fr>
         </text>		
 		<text name="txt_healthLossesMsg">
 			<de>%s - Leider hast Du %s %s wegen geringer Gesundheit verloren!</de>
 			<en>%s - Unfortunately you lost %s %s because of bad health!</en>
+			<fr>%s - Malheureusement, vous avez perdu %s %s à cause d'une mauvaise santé!</fr>
         </text>		
 		<text name="txt_foodLossesMsg">
 			<de>%s - Leider hast Du %s %s wegen fehlendem Futter verloren!</de>
 			<en>%s - Unfortunately you lost %s %s because of lack of food!</en>
+			<fr>%s - Malheureusement vous avez perdu %s %s à cause du manque de nourriture!</fr>
         </text>		
 		<text name="txt_riskInfoMsg">
 			<de>Achtung, kümmern Sie sich um Ihre Tiere (Futter, Gesundheit, Alter)!</de>
 			<en>Attention, take care of your animals (food, health, age)!</en>
+			<fr>Attention, prenez soin de vos animaux (nourriture, santé, âge)!</fr>
         </text>		
 		<text name="txt_horse">
 			<de>Pferd,Pferde</de>
 			<en>horse,horses</en>
+			<fr>cheval, chevaux</fr>
         </text>		
         <text name="txt_pig">
 			<de>Schwein,Schweine</de>
 			<en>pig,pigs</en>
+			<fr>cochon,cochons</fr>
         </text>		
         <text name="txt_cow">
 			<de>Kuh,Kühe</de>
 			<en>cow,cows</en>
+			<fr>vache, vaches</fr>
         </text>		
         <text name="txt_sheep">
 			<de>Schaf,Schafe</de>
 			<en>sheep,sheep</en>
+			<fr>moutons, moutons</fr>
         </text>		
         <text name="txt_chicken">
 			<de>Huhn,Hühner</de>
 			<en>chicken,chickens</en>
+			<fr>poulet, poulets</fr>
         </text>		
 	</l10n>
 </modDesc>
