@@ -69,22 +69,22 @@ Mise à jour 1.0.1
 		<text name="txt_ageLossesMsg">
 			<de>%s - Leider hast Du %s %s wegen zu hohem Alter verloren!</de>
 			<en>%s - Unfortunately you lost %s %s because of too old age!</en>
-			<fr>%s - Malheureusement vous avez perdu %s %s à cause d'un âge trop avancé!</fr>
-        </text>		
-		<text name="txt_healthLossesMsg">
-			<de>%s - Leider hast Du %s %s wegen geringer Gesundheit verloren!</de>
-			<en>%s - Unfortunately you lost %s %s because of bad health!</en>
-			<fr>%s - Malheureusement, vous avez perdu %s %s à cause d'une mauvaise santé!</fr>
+			<fr>%s - Malheureusement tu as perdu %s %s à cause d'un âge trop avancé!</fr>
         </text>		
 		<text name="txt_foodLossesMsg">
-			<de>%s - Leider hast Du %s %s wegen fehlendem Futter verloren!</de>
-			<en>%s - Unfortunately you lost %s %s because of lack of food!</en>
-			<fr>%s - Malheureusement vous avez perdu %s %s à cause du manque de nourriture!</fr>
+			<de>%s - Leider hast Du %s %s wegen fehlendem Futter/Gesundheit verloren!</de>
+			<en>%s - Unfortunately you lost %s %s due to lack of food/health!</en>
+			<fr>%s - Malheureusement, tu as perdu %s %s à cause du manque de nourriture/santé!</fr>
         </text>		
-		<text name="txt_riskInfoMsg">
-			<de>Achtung, kümmern Sie sich um Ihre Tiere (Futter, Gesundheit, Alter)!</de>
-			<en>Attention, take care of your animals (food, health, age)!</en>
-			<fr>Attention, prenez soin de vos animaux (nourriture, santé, âge)!</fr>
+		<text name="txt_riskInfoMsgFood">
+			<de>Achtung, kümmer Dich um Deine Tiere (Futter und Gesundheit (%s%% Risiko))!</de>
+			<en>Attention, take care of your animals (food and health (%s%% risk))!</en>
+			<fr>Attention, prenez soin de vos animaux (nourriture et santé (%s%% risque))!</fr>
+        </text>		
+		<text name="txt_riskInfoMsgAge">
+			<de>Achtung, kümmer Dich um Deine Tiere (Alter (%s%% Risiko))!</de>
+			<en>Attention, take care of your animals (age (%s%% risk))!</en>
+			<fr>Attention, prenez soin de vos animaux (âge (%s%% risque))!</fr>
         </text>		
 		<text name="txt_horse">
 			<de>Pferd,Pferde</de>
